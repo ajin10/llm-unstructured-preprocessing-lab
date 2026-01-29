@@ -1,43 +1,80 @@
-llm-unstructured-preprocessing-lab
+# LLM Unstructured Data Preprocessing Lab
 
-Hands-on exploration of preprocessing unstructured data (PDFs, text, tables, images, metadata) for LLM and Retrieval-Augmented Generation (RAG) applications using LlamaIndex.
+Hands-on exploration of preprocessing unstructured data (PDFs, text, tables, images, metadata, chunking) for Large Language Model (LLM) and Retrieval-Augmented Generation (RAG) applications using LlamaIndex.
 
-Retrieval-Augmented Generation (RAG) has become a core architectural pattern in enterprise LLM systems. A typical RAG pipeline includes data load, normalization, chunking, embedding, vector storage, and retrieval. Among these stages, data loading and preprocessing are often the most complex due to the diversity of real-world document formats and content types.
+---
 
-In practice, enterprise knowledge is spread across:
+## Overview
 
-PDFs, Word documents, and PowerPoint presentations
+Retrieval-Augmented Generation (RAG) is now a core pattern in enterprise LLM systems.  
+A typical RAG pipeline includes:
 
-Spreadsheets with structured and semi-structured tables
+- Data ingestion  
+- Parsing and normalization  
+- Chunking  
+- Embedding generation  
+- Vector storage  
+- Retrieval and context assembly  
 
-Markdown, HTML, and knowledge base articles
+While retrieval and generation often get the spotlight, one of the most critical and complex stages is **data preprocessing** — especially when working with diverse, unstructured enterprise sources.
 
-Communication platforms such as Slack, Teams, and email
+This project focuses on building a robust preprocessing layer that enables LLMs to reason over:
 
-Documents containing mixed content: text, tables, images, and hierarchical sections
+- PDFs  
+- PowerPoint / Slides  
+- Word documents  
+- HTML / Markdown  
+- Images  
+- Tables  
+- Enterprise content (emails, chat exports, reports, etc.)
 
-Each file type encodes information differently, and even a single document may contain multiple modalities (paragraphs, tables, figures, bullet lists). Effective RAG systems must therefore:
+---
 
-Parse heterogeneous file formats
+## Why Preprocessing Matters
 
-Normalize content into consistent representations
+Enterprise knowledge is scattered across many formats:
 
-Preserve document structure via metadata and hierarchy
+- Numeric data in Excel
+- Reports in PDF
+- Presentations in PowerPoint
+- Documentation in Word and Markdown
+- Communications in Slack, Teams, Outlook
 
-Chunk content intelligently for semantic retrieval
+Each format can internally contain:
 
-Enrich nodes with context for high-quality downstream search and generation
+- Free-form text  
+- Tables  
+- Images  
+- Structured sections and headings  
 
-This repository follows a structured, experiment-driven approach to:
+To support high-quality RAG, data must be:
 
-Extracting and normalizing content from diverse unstructured sources
+1. **Parsed** from many file types  
+2. **Normalized** into consistent representations  
+3. **Chunked** intelligently for semantic retrieval  
+4. **Enriched with metadata** (document structure, hierarchy, source, section titles)
 
-Representing text, tables, and images in LLM-friendly formats
+---
 
-Preserving document hierarchy and metadata for contextual retrieval
+## Key Techniques Explored
 
-Designing chunking strategies optimized for RAG
+- Multi-format document loading (PDF, PPTX, DOCX, HTML, Images)
+- Content normalization (text, tables, lists, figures)
+- Hierarchical metadata extraction (sections, headers, parent-child structure)
+- Semantic chunking strategies
+- Table and image extraction
+- Preparing structured inputs for embedding and retrieval
+- Building a RAG pipeline on top of processed documents
 
-Building an end-to-end RAG pipeline using LlamaIndex
+---
 
-The goal is to treat preprocessing not as a simple ETL step, but as a first-class data engineering and systems problem that directly determines the quality, reliability, and safety of LLM applications.
+## End Goal
+
+By the end of this lab, the pipeline will:
+
+- Ingest heterogeneous enterprise documents
+- Preserve structural and semantic context via metadata
+- Produce high-quality chunks for embedding
+- Power a LlamaIndex-based RAG system capable of answering questions across mixed document types
+
+This repository serves as a practical, end-to-end reference for building **production-grade preprocessing pipelines for LLM and RAG applications**.
