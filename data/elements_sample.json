@@ -1,0 +1,17 @@
+[
+  {
+    "type": "Title",
+    "text": "Sample Document",
+    "metadata": {
+      "page_number": 1,
+      "filename": "sample.pdf"
+    }
+  },
+  {
+    "type": "NarrativeText",
+    "text": "This is placeholder content used for testing chunking and metadata enrichment.",
+    "metadata": {
+      "page_number": 1
+    }
+  }
+]
